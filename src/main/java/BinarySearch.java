@@ -10,7 +10,7 @@ public class BinarySearch<T extends Number> implements Search<T> {
     private List<T> list;
     private boolean isSort;
 
-    public BinarySearch() {
+    BinarySearch() {
         this.list = new ArrayList<>();
     }
 
@@ -70,43 +70,6 @@ public class BinarySearch<T extends Number> implements Search<T> {
         sort(cur + 1, end);
     }
 
-
-   /* private void sort(int low, int high) {
-
-        if (low >= high)
-            return;
-        int middle = low + (high - low) / 2;
-        BigDecimal bdOpora = new BigDecimal(list.get(middle).toString());
-        BigDecimal bdOpora = new BigDecimal(list.get(middle).toString());
-        BigDecimal bdOpora = new BigDecimal(list.get(middle).toString());
-        // разделить на подмассивы, который больше и меньше опорного элемента
-        int i = low, j = high;
-        while (i <= j) {
-            while (array[i] < opora) {
-                i++;
-            }
-
-            while (array[j] > opora) {
-                j--;
-            }
-
-            if (i <= j) {//меняем местами
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-                i++;
-                j--;
-            }
-        }
-
-        // вызов рекурсии для сортировки левой и правой части
-        if (low < j)
-            quickSort(array, low, j);
-
-        if (high > i)
-            quickSort(array, i, high);
-    }*/
-
     @Override
     public void putItem(T item) {
         if (isSort) {
@@ -124,10 +87,6 @@ public class BinarySearch<T extends Number> implements Search<T> {
         }
         else
             list.add(item);
-    }
-
-    private Object[] toArray() {
-        return list.toArray();
     }
 
     @Override
