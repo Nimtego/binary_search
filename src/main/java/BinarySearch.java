@@ -40,20 +40,28 @@ public class BinarySearch<T extends Number> implements Search<T> {
             return;
         int i = start, j = end;
         int cur = i - (i - j) / 2;
+
         while (i < j) {
             BigDecimal bdItemI = new BigDecimal(list.get(i).toString());
             BigDecimal bdItemCur = new BigDecimal(list.get(cur).toString());
             BigDecimal bdItemJ = new BigDecimal(list.get(j).toString());
             while (i < cur && (bdItemI.compareTo(bdItemCur) <= 0)) {
+                bdItemI = new BigDecimal(list.get(i).toString());
+                bdItemCur = new BigDecimal(list.get(cur).toString());
+                System.out.println(bdItemI +" и " +bdItemCur +" - " +bdItemI +" <= " +bdItemCur +(bdItemI.compareTo(bdItemCur) <= 0));
                 i++;
             }
             while (j > cur && (bdItemCur.compareTo(bdItemJ) <= 0)) {
+                bdItemCur = new BigDecimal(list.get(cur).toString());
+                bdItemJ = new BigDecimal(list.get(j).toString());
+                System.out.println(bdItemCur +" и " +bdItemJ +" - " +bdItemCur +" <= " +bdItemJ +(bdItemCur.compareTo(bdItemJ) <= 0));
                 j--;
             }
-            if (i < j) {
+            if (i <= j) {
                 T temp = list.get(i);
                 list.set(i, list.get(j));
                 list.set(j, temp);
+                System.out.println(list);
                 if (i == cur)
                     cur = j;
                 else if (j == cur)
@@ -63,6 +71,43 @@ public class BinarySearch<T extends Number> implements Search<T> {
         sort(start, cur);
         sort(cur + 1, end);
     }
+
+
+   /* private void sort(int low, int high) {
+
+        if (low >= high)
+            return;
+        int middle = low + (high - low) / 2;
+        BigDecimal bdOpora = new BigDecimal(list.get(middle).toString());
+        BigDecimal bdOpora = new BigDecimal(list.get(middle).toString());
+        BigDecimal bdOpora = new BigDecimal(list.get(middle).toString());
+        // разделить на подмассивы, который больше и меньше опорного элемента
+        int i = low, j = high;
+        while (i <= j) {
+            while (array[i] < opora) {
+                i++;
+            }
+
+            while (array[j] > opora) {
+                j--;
+            }
+
+            if (i <= j) {//меняем местами
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+                i++;
+                j--;
+            }
+        }
+
+        // вызов рекурсии для сортировки левой и правой части
+        if (low < j)
+            quickSort(array, low, j);
+
+        if (high > i)
+            quickSort(array, i, high);
+    }*/
 
     @Override
     public void putItem(T item) {
@@ -81,6 +126,10 @@ public class BinarySearch<T extends Number> implements Search<T> {
         }
         else
             list.add(item);
+    }
+
+    private Object[] toArray() {
+        return list.toArray();
     }
 
     @Override
