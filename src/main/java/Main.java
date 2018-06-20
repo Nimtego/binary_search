@@ -13,6 +13,10 @@ public class Main {
         System.out.println(integerSearch);
         integerSearch.sort();
         System.out.println(integerSearch);
+        for (int i = 0; i < 30; i++) {
+            int number = r.nextInt(100);
+            System.out.println(integerSearch.binary(number) +" search - " +number);
+        }
         System.out.println(integerSearch.binary(1));
 
         Search<Float> integerSearchFloat = new BinarySearch<>();
