@@ -17,7 +17,7 @@ public class Main {
             int number = r.nextInt(100);
             System.out.println(integerSearch.binary(number) +" search - " +number);
         }
-        System.out.println(integerSearch.binary(1));
+
 
         Search<Float> integerSearchFloat = new BinarySearch<>();
         float min = 1f;
@@ -28,6 +28,9 @@ public class Main {
         System.out.println(integerSearchFloat);
         integerSearchFloat.sort();
         System.out.println(integerSearchFloat);
-        System.out.println(integerSearchFloat.binary(1f));
+        for (int i = 0; i < 30; i++) {
+            float number = min + r.nextFloat() * (max - min);
+            System.out.println(integerSearchFloat.binary(number) +" search - " +number);
+        }
     }
 }
