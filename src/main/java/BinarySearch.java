@@ -46,22 +46,20 @@ public class BinarySearch<T extends Number> implements Search<T> {
             BigDecimal bdItemCur = new BigDecimal(list.get(cur).toString());
             BigDecimal bdItemJ = new BigDecimal(list.get(j).toString());
             while (i < cur && (bdItemI.compareTo(bdItemCur) <= 0)) {
+                i++;
                 bdItemI = new BigDecimal(list.get(i).toString());
                 bdItemCur = new BigDecimal(list.get(cur).toString());
-                System.out.println(bdItemI +" и " +bdItemCur +" - " +bdItemI +" <= " +bdItemCur +(bdItemI.compareTo(bdItemCur) <= 0));
-                i++;
             }
             while (j > cur && (bdItemCur.compareTo(bdItemJ) <= 0)) {
+                j--;
                 bdItemCur = new BigDecimal(list.get(cur).toString());
                 bdItemJ = new BigDecimal(list.get(j).toString());
-                System.out.println(bdItemCur +" и " +bdItemJ +" - " +bdItemCur +" <= " +bdItemJ +(bdItemCur.compareTo(bdItemJ) <= 0));
-                j--;
             }
             if (i <= j) {
                 T temp = list.get(i);
                 list.set(i, list.get(j));
                 list.set(j, temp);
-                System.out.println(list);
+
                 if (i == cur)
                     cur = j;
                 else if (j == cur)
