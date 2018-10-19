@@ -4,9 +4,8 @@ import javasrc.MainJ
 object Solution {
     @JvmStatic
     fun main(args: Array<String>) {
-        val jTimeSpent : Long
-        val kTimeSpent : Long
-
+        val jTimeSpent: Long
+        val kTimeSpent: Long
         val jTimeStart = System.currentTimeMillis()
         MainK.main()
         jTimeSpent = System.currentTimeMillis() - jTimeStart

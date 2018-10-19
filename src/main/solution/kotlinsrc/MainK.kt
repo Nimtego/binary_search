@@ -1,6 +1,6 @@
 package kotlinsrc
 
-import java.util.*
+import java.util.Random
 
 class MainK {
     companion object {

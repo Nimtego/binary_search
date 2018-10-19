@@ -92,22 +92,22 @@ class BinarySearchK<T : Number> : SearchK<T> {
 
     override fun toString(): String {
         val sb = StringBuilder()
-        list.forEach(Consumer<T> { sb.append(it) })
+        list.forEach { sb.append(it) }
         return sb.toString()
     }
 
-    private fun rank(`val`: BigDecimal, arr: List<T>?, lo: Int, hi: Int): Int {
+    private fun rank(value: BigDecimal, arr: List<T>?, lo: Int, hi: Int): Int {
         if (lo > hi) return -1
         val mid = lo + (hi - lo) / 2
         val bgMid = BigDecimal(arr!![mid].toString())
         return when {
-            `val` < bgMid -> {
+            value < bgMid -> {
                 visual(mid)
-                rank(`val`, arr, lo, mid - 1)
+                rank(value, arr, lo, mid - 1)
             }
-            `val` > bgMid -> {
+            value > bgMid -> {
                 visual(mid)
-                rank(`val`, arr, mid + 1, hi)
+                rank(value, arr, mid + 1, hi)
             }
             else -> {
                 visual(mid)
@@ -119,10 +119,10 @@ class BinarySearchK<T : Number> : SearchK<T> {
     private fun visual(mid: Int) {
         for (i in list.indices) {
             if (mid == i) {
-                print("[" + list[i] + "] ")
+                print(" [${list[i]}] ")
                 continue
             }
-            print(list[i].toString() + " ")
+            print("${list[i]} ")
         }
         println()
 
