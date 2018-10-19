@@ -1,4 +1,4 @@
-package kotlin
+package kotlinsrc
 interface SearchK<T : Number> {
     fun sort(set: MutableList<T>): List<T>
     fun itemExists(item: T): Boolean

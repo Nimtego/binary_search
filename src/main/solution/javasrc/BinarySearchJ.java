@@ -1,4 +1,4 @@
-package java;
+package javasrc;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -98,8 +98,7 @@ public class BinarySearchJ<T extends Number> implements SearchJ<T> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (T i : list )
-            sb.append(i).append(" ");
+        list.forEach(sb::append);
         return String.valueOf(sb);
     }
 
