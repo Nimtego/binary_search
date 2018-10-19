@@ -1,12 +1,13 @@
+package java;
 import java.util.Random;
 
 /**
  * Created by nimtego_loc on 19.06.2018.
  */
-public class Main {
-    public static void main(String[] args) {
+public class MainJ {
+    public static void main() {
         Random r = new Random();
-        Search<Integer> integerSearch = new BinarySearch<>();
+        SearchJ<Integer> integerSearch = new BinarySearchJ<>();
         for (int i = 0; i < 30; i++) {
             integerSearch.putItem(r.nextInt(100));
         }
@@ -19,7 +20,7 @@ public class Main {
         }
 
 
-        Search<Float> integerSearchFloat = new BinarySearch<>();
+        SearchJ<Float> integerSearchFloat = new BinarySearchJ<>();
         float min = 1f;
         float max = 10f;
         for (int i = 0; i < 30; i++) {

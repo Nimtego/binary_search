@@ -1,3 +1,4 @@
+package java;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -5,12 +6,12 @@ import java.util.List;
 /**
  * Created by nimtego_loc on 18.06.2018.
  */
-public class BinarySearch<T extends Number> implements Search<T> {
+public class BinarySearchJ<T extends Number> implements SearchJ<T> {
 
     private List<T> list;
     private boolean isSort;
 
-    BinarySearch() {
+    BinarySearchJ() {
         this.list = new ArrayList<>();
     }
 
