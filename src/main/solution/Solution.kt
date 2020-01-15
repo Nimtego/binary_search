@@ -1,7 +1,9 @@
 import binaryT.ThreadedBinarySearchTree
 import javasrc.MainJ
 import kotlinsrc.MainK
+import line_search.SearcherThread
 import java.util.*
+import kotlin.concurrent.thread
 
 object Solution {
     @JvmStatic
@@ -19,6 +21,7 @@ object Solution {
         println("Java - $jTimeSpent \nKotlin - $kTimeSpent")
 
         startBinaryThread()
+        linearSearch()
     }
 
     private fun startBinaryThread() {
@@ -42,7 +45,9 @@ object Solution {
                     while (true) {
                         try {
                             tbst.insert(scan.nextInt())
-                        } catch (e: InputMismatchException) { break }
+                        } catch (e: InputMismatchException) {
+                            break
+                        }
                     }
 
                 }
@@ -65,5 +70,29 @@ object Solution {
             ch = scan.next()
         } while (ch != "n")
     }
+    //linear thread search
+    private fun linearSearch() {
 
+        val listInt = listOf( 1, 2, 3, 4, 5, 6, 7 )
+        val key = 3
+        val searchThread = SearcherThread(listInt.toIntArray(), key);
+        searchThread.start()
+        notBlockingTest()
+        try {
+            searchThread.join();
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+
+        }
+        println(searchThread.result)
+    }
+
+    private fun notBlockingTest() {
+        var i = 0
+        while (i < 1000) {
+            i++
+            Thread.sleep(100)
+            println(i)
+        }
+    }
 }
